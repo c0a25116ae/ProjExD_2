@@ -39,12 +39,17 @@ def main():
         #     sum_mv[0] -= 5
         # if key_lst[pg.K_RIGHT]:
         #     sum_mv[0] += 5
-        # kk_rct.move_ip(sum_mv)
-        # screen.blit(kk_img, kk_rct)
-        # pg.display.update()
-        # tmr += 1
-        # clock.tick(50)
+        
+        for key, mv in DELTA.items():
+            if key_lst[key]:
+                sum_mv[0] += mv[0] #横
+                sum_mv[1] += mv[1] #縦
 
+        kk_rct.move_ip(sum_mv)
+        screen.blit(kk_img, kk_rct)
+        pg.display.update()
+        tmr += 1
+        clock.tick(50)
 
 if __name__ == "__main__":
     pg.init()
